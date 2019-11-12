@@ -13,7 +13,7 @@ from glob import glob
 cwd = os.path.dirname(os.path.realpath(__file__))
 import cv2
 
-sys.path.append("/home/max/Downloads/MTCNN/models/research")
+sys.path.append("/home/maxwell/Downloads/MTCNN/models/research")
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
 
@@ -181,7 +181,7 @@ if __name__ == '__main__':
         #TEST_IMAGE_PATHS= glob(os.path.join('test_face/', '*.jpg'))
 
 
-        path_to_test_images_dir = '/home/max/Downloads/MTCNN/Face-Detection-and-Tracking/2/'
+        path_to_test_images_dir = '/home/maxwell/Downloads/MTCNN/Multi_face_detection_et_tracking/2/'
         for image_file in sorted(os.listdir(path_to_test_images_dir)):
             images = os.path.join(path_to_test_images_dir,image_file)
             print(images)

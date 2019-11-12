@@ -202,7 +202,7 @@ if __name__ == "__main__":
     
     if debug: # test on a sequence of images
         #images = [plt.imread(file) for file in glob.glob('./test_images/*.jpg')]
-        path_to_test_images_dir = '/home/max/Downloads/MTCNN/Face-Detection-and-Tracking/2/'
+        path_to_test_images_dir = '/home/maxwell/Downloads/MTCNN/multi_face_detection_et_tracking/2/'
         for image_file in sorted(os.listdir(path_to_test_images_dir)):
             images = os.path.join(path_to_test_images_dir,image_file)
             print(images)
@@ -223,8 +223,8 @@ if __name__ == "__main__":
     else: # test on a video file.
         
         start=time.time()
-        output = 'test_v2.mp4'
-        clip1 = VideoFileClip("max_friends.mp4")
+        output = 'test_v1.mp4'
+        clip1 = VideoFileClip("maxwell_lingfeng.mp4")
 
         clip = clip1.fl_image(pipeline)
         clip.write_videofile(output, audio=False)

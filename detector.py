@@ -13,7 +13,7 @@ from glob import glob
 cwd = os.path.dirname(os.path.realpath(__file__))
 import cv2
 
-sys.path.append("/home/maxwell/Downloads/MTCNN/models/research")
+sys.path.append("/home/max/Downloads/MTCNN/models/research")
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
 
@@ -34,7 +34,7 @@ class face_detection(object):
         # Single-shot-dectection with mobile net architecture trained on COCO dataset
         
         #detect_model_name = 'ssd_mobilenet_v1_coco_11_06_2017'
-        detect_model_name = 'ckpt_data_ssd_inception_v2_coco'
+        detect_model_name = 'ckpt_data_ssd_mobilenet_v1_coco_FDDB'
         #detect_model_name = '/home/max/Desktop/files/ckpt_data_ssd_inception_v2_coco'
         PATH_TO_CKPT = detect_model_name + '/frozen_inference_graph.pb'
         
@@ -94,9 +94,9 @@ class face_detection(object):
 
         """
 
-        category_index={1: {'id': 1, 'name': u'face'}} # WIDERFACE
-        # category_index={1: {'id': 1, 'name': u'face'},     #FDDB
-        #                 2: {'id': 2, 'name': u'eye'}}      #FDDB       
+        #category_index={1: {'id': 1, 'name': u'face'}} # WIDERFACE
+        category_index={1: {'id': 1, 'name': u'face'},     #FDDB
+                         2: {'id': 2, 'name': u'eye'}}      #FDDB       
         with self.detection_graph.as_default():
             image_expanded = np.expand_dims(image, axis=0)
             (boxes, scores, classes, num_detections) = self.sess.run(
@@ -142,7 +142,7 @@ class face_detection(object):
                     box_w = box[3] - box[1]
                     ratio = box_h/(box_w + 0.01)
                       
-                    if ((ratio > 1.2) and (box_h>20) and (box_w>20)):
+                    if ((ratio > 1.0) and (box_h>20) and (box_w>20)):
                         tmp_face_boxes.append(box)
                         print(box, ', confidence: ', scores[idx], 'ratio:', ratio)
                          
@@ -181,7 +181,7 @@ if __name__ == '__main__':
         #TEST_IMAGE_PATHS= glob(os.path.join('test_face/', '*.jpg'))
 
 
-        path_to_test_images_dir = '/home/maxwell/Downloads/MTCNN/Multi_face_detection_et_tracking/2/'
+        path_to_test_images_dir = '/home/max/Downloads/MTCNN/multi_face_detection_et_tracking/2/'
         for image_file in sorted(os.listdir(path_to_test_images_dir)):
             images = os.path.join(path_to_test_images_dir,image_file)
             print(images)

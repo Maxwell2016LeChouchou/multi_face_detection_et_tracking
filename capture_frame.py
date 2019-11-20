@@ -1,12 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Nov 22 15:07:09 2016
-
-@author: kyleguan
-A simple script to capture frames from a video clip
-
-"""
 
 import cv2
 import os

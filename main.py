@@ -31,7 +31,7 @@ tracker_list =[] # list for trackers
 # list for track ID
 track_id_list= deque(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'])
 
-debug = False
+debug = False  #Test a few video frames before tracking video faces
 
 def assign_detections_to_trackers(trackers, detections, iou_thrd = 0.3):
     '''
